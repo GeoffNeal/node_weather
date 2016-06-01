@@ -15,5 +15,9 @@
     "data-visualisation"
   ],
   "author": "Geoffrey Neal",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.5.6",
+    "express": "^4.13.4"
+  }
 }
