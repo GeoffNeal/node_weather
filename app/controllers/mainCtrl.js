@@ -1,6 +1,8 @@
 var angular = require("angular");
 
 angular.module("weatherApp")
-.controller("mainCtrl", function($scope) {
-
+//Create controller.
+.controller("mainCtrl", function($scope, dataService) {
+	//Call the getData method.
+	
 });
