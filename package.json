@@ -1,0 +1,19 @@
+{
+  "name": "node_weather2",
+  "version": "1.0.0",
+  "description": "Node app that displays up to date data about the weather in any city that is searched for.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Node.js",
+    "Express.js",
+    "Angular.js",
+    "weather",
+    "data",
+    "data-visualisation"
+  ],
+  "author": "Geoffrey Neal",
+  "license": "MIT"
+}
