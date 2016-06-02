@@ -22,7 +22,9 @@ angular.module("weatherApp")
 	$scope.sendData = function() {
 		dataService.getData($scope.userInput, function(response) {
 			var data = response.data;
-			// $scope.drawings = drawings;
+			console.log(data);
+			//Set the 
+			$scope.cityName = data.name;
 		});
 	}
 });

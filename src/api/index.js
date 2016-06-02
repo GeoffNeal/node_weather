@@ -1,63 +1,60 @@
 'use strict';
 
 var express = require('express');
-
+var http = require("http");
 var router = express.Router();
+
+var APIKEY = "f6d815f76f18ba0f08850d5aa4f03a55";
 
 //CRUD operations****************
 
-router.get("/drawings", function(req, res) { //To get all drawings
-	Drawing.find({}, function(err, drawings) {
-		if(err) {
-			return res.status(500).json({message: err.message});
-		}
-		res.json({drawings: drawings});
-	});
-});
+router.get("/cityData/:name", function(req, res) { //To get a single specific drawing.
+	var cityName = req.params.name;
+	
+	//GET data from openweathermap
+	var request = http.get("http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=metric&APPID=" + APIKEY, function(response) {
+		var body = "";
+		response.setEncoding("utf8");
 
-router.get("/drawings/:id", function(req, res) { //To get a single specific drawing.
-	var id = req.params.id;
-	Drawing.find({_id: id}, function(err, drawing) {
-		if(err) {
-			return res.status(500).json({message: err.message});
+		//If the response is not successful...
+		if(response.statusCode !== 200) {
+			//Abort the request
+			request.abort();
+			//Show status code error
+			profileEmitter.emit("error", new Error("There was an error getting the data for " + cityName + ". (" + http.STATUS_CODES[response.statusCode] + ")"));
 		}
-		res.json({drawing: drawing});
-	});
-});
 
-router.post("/drawings", function(req, res) {
-	var drawing = req.body;
-	Drawing.create(drawing, function(err, drawing) {
-		if(err) {
-			return res.status(500).json({message: err.message});
-		}
-	});
-	res.json({'drawing': drawing, 'message': 'Drawing created'});
-});
+		//Read the data
+		response.on("data", function(chunk) {
+			body += chunk;
+		});
 
-router.put("/drawings/:id", function(req, res) {
-	var id = req.params.id;
-	var drawing = req.body;
-	if(drawing && drawing._id !== id) {
-		return res.status(500).json({err: "ID does not match."});
-	}
-	Drawing.findByIdAndUpdate(id, drawing, {new: true}, function(err, drawing) {
-		if(err) {
-			return res.status(500).json({message: err.message});
-		}
+		response.on("end", function() {
+			if(response.statusCode === 200) {
+				try {
+					//Parse the data
+					var cityProfile = JSON.parse(body);
+					var values = {
+						name: cityProfile.name,
+						country: cityProfile.sys.country,
+						weather: cityProfile.weather[0].main,
+						weather_desc: cityProfile.weather[0].description,
+						icon: cityProfile.weather[0].icon,
+						temperature: cityProfile.main.temp,
+						pressure: cityProfile.main.pressure,
+						humidity: cityProfile.main.humidity,
+						wind_speed: cityProfile.wind.speed
+					}
+					console.log(cityProfile);
+					res.send(values);
+				} catch(error) {
+					profileEmitter.emit("error", error);
+				}
+			}
+		}).on("error", function(error) {
+			profileEmitter.emit("error", error);
+		});
 	});
-	res.json({'drawing': drawing, 'message': 'Drawing updated'});
-});
-
-router.delete('/drawings/:id', function (req, res) {
-    var id = req.params.id; // This maps to the :id in the url
-    Drawing.findByIdAndRemove(id, function (err, result) {
-        if (err) {
-            res.status(500).json({ message: err.message });
-        } else {
-            res.json({ message: 'Deleted Todo' });
-        }
-    });
 });
 
 //******************CRUD operations.

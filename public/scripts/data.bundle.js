@@ -42,7 +42,9 @@ webpackJsonp([0],[
 		$scope.sendData = function() {
 			dataService.getData($scope.userInput, function(response) {
 				var data = response.data;
-				// $scope.drawings = drawings;
+				console.log(data);
+				//Set the 
+				$scope.cityName = data.name;
 			});
 		}
 	});
@@ -74,9 +76,9 @@ webpackJsonp([0],[
 	//Create service.
 	.service("dataService", function($http) {
 		
-		//Get the data.
+		//Get the data for the city entered in the search bar.
 		this.getData = function(city, cb_response) {
-			$http.get("/api/" + city).then(cb_response);
+			$http.get("/api/cityData/" + city).then(cb_response);
 		}
 
 		// this.getDrawings = function(cb_response) {
