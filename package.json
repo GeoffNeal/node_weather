@@ -18,6 +18,7 @@
   "license": "MIT",
   "dependencies": {
     "angular": "^1.5.6",
+    "angular-bootstrap-npm": "^0.14.3",
     "body-parser": "^1.15.1",
     "express": "^4.13.4"
   },
