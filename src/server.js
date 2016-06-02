@@ -18,6 +18,6 @@ app.use(parser.json());
 app.use("/api", router);
 
 //Start the server.
-http.listen(port, function() {
+app.listen(port, function() {
 	console.log("Server running at " + address + ":" + port);
 });

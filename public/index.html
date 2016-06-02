@@ -2,8 +2,12 @@
 <html>
 <head>
 </head>
-<body ng-controller="mainCtrl">
-	<input type="text" placeholder="Enter a city name">
-	<input type="submit" value="search">
+<body ng-app="weatherApp">
+	<div ng-controller="mainCtrl">
+		<input type="text" placeholder="Enter a city name" ng-model="userInput" id="searchBar">
+		<input type="submit" value="search" id="submit" ng-click="sendData()">
+	</div>
+	<script type="text/javascript" src="/scripts/vendor.bundle.js"></script>
+	<script type="text/javascript" src="/scripts/data.bundle.js"></script>
 </body>
 </html>
