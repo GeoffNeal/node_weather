@@ -10,7 +10,7 @@ webpackJsonp([0],[
 	angular.module("weatherApp", ['ui.bootstrap']);
 
 	__webpack_require__(4);
-	__webpack_require__(5);
+	__webpack_require__(8);
 	__webpack_require__(6);
 
 /***/ },
@@ -8559,23 +8559,7 @@ webpackJsonp([0],[
 	});
 
 /***/ },
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var angular = __webpack_require__(1);
-
-	angular.module('weatherApp')
-	.directive('graph', function(){
-	  return {
-	    templateUrl: 'views/graph.html',
-	    replace: true,
-	    controller: 'mainCtrl'
-	  }
-	});
-
-/***/ },
+/* 5 */,
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -8594,6 +8578,24 @@ webpackJsonp([0],[
 		// 	$http.get('/api/drawings').then(cb_response);
 		// };
 
+	});
+
+/***/ },
+/* 7 */,
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var angular = __webpack_require__(1);
+
+	angular.module('weatherApp')
+	.directive('graph', function(){
+	  return {
+	    templateUrl: 'views/graph.html',
+	    replace: true,
+	    controller: 'mainCtrl'
+	  }
 	});
 
 /***/ }
