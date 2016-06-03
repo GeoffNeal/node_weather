@@ -3,7 +3,7 @@
 var angular = require('angular');
 
 angular.module('weatherApp')
-.directive('graph', function(){
+.directive('graphDirective', function(){
   return {
     templateUrl: 'views/graph.html',
     replace: true,

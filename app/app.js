@@ -6,5 +6,6 @@ require( 'angular-bootstrap-npm' );
 angular.module("weatherApp", ['ui.bootstrap']);
 
 require("./controllers/mainCtrl.js");
-require("./directives/graph.js");
+require("./controllers/graphCtrl.js");
+require("./directives/graphDirective.js");
 require("./services/dataService.js");

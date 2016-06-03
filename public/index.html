@@ -4,10 +4,25 @@
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
 <body ng-app="weatherApp">
-	<div ng-controller="mainCtrl" class="container">
-		<input type="text" placeholder="Enter a city name" ng-model="userInput" id="searchBar">
-		<input type="submit" value="search" id="submit" ng-click="sendData()">
-		<h1>{{cityName}}</h1>
+	<div class="container">
+		<div ng-controller="mainCtrl">
+			<input type="text" placeholder="Enter a city name" ng-model="userInput" id="searchBar">
+			<input type="submit" value="search" id="submit" ng-click="sendData()">
+			<h1>{{cityName}} {{cityCountry}}</h1>
+			<h3>{{date}}</h3>
+			<ul>
+				<li>Weather: {{cityWeather}}</li>
+				<li>Description: {{cityWeatherDesc}}</li>
+				<li>Temperature: {{cityTemp}}&deg;C</li>
+				<li>Pressure: {{cityPressure}} hPa</li>
+				<li>Humidity: {{cityHumidity}}&#37;</li>
+				<li>Wind Speed: {{cityWindSpeed}} meter/sec</li>
+			</ul>
+			<img src="{{cityIcon}}">
+			<div ng-controller="graphCtrl" id="graph">
+				<h1>Graph</h1>
+			</div>
+		</div>
 	</div>
 	<script type="text/javascript" src="/scripts/vendor.bundle.js"></script>
 	<script type="text/javascript" src="/scripts/data.bundle.js"></script>

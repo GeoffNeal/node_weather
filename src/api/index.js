@@ -10,9 +10,9 @@ var APIKEY = "f6d815f76f18ba0f08850d5aa4f03a55";
 
 router.get("/cityData/:name", function(req, res) { //To get a single specific drawing.
 	var cityName = req.params.name;
-	
+
 	//GET data from openweathermap
-	var request = http.get("http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=metric&APPID=" + APIKEY, function(response) {
+	var request = http.get("http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=metric&cnt=33&APPID=" + APIKEY, function(response) {
 		var body = "";
 		response.setEncoding("utf8");
 
@@ -34,19 +34,19 @@ router.get("/cityData/:name", function(req, res) { //To get a single specific dr
 				try {
 					//Parse the data
 					var cityProfile = JSON.parse(body);
-					var values = {
-						name: cityProfile.name,
-						country: cityProfile.sys.country,
-						weather: cityProfile.weather[0].main,
-						weather_desc: cityProfile.weather[0].description,
-						icon: cityProfile.weather[0].icon,
-						temperature: cityProfile.main.temp,
-						pressure: cityProfile.main.pressure,
-						humidity: cityProfile.main.humidity,
-						wind_speed: cityProfile.wind.speed
-					}
+					// var values = {
+					// 	name: cityProfile.name,
+					// 	country: cityProfile.sys.country,
+					// 	weather: cityProfile.weather[0].main,
+					// 	weather_desc: cityProfile.weather[0].description,
+					// 	icon: cityProfile.weather[0].icon,
+					// 	temperature: cityProfile.main.temp,
+					// 	pressure: cityProfile.main.pressure,
+					// 	humidity: cityProfile.main.humidity,
+					// 	wind_speed: cityProfile.wind.speed
+					// }
 					console.log(cityProfile);
-					res.send(values);
+					res.send(cityProfile);
 				} catch(error) {
 					profileEmitter.emit("error", error);
 				}
