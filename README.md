@@ -14,7 +14,7 @@ You can then run:
 
 	npm install
 
-to download dependencies.
+whilst in the root directory to download dependencies.
 
 Once that's done, run the command:
 
