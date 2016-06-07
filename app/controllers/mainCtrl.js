@@ -33,7 +33,7 @@ angular.module("weatherApp")
 			//Set the $scope variables.
 			$scope.data = data;
 			$scope.cityIcon = iconUrl;
-			$scope.dataType = 4;
+			$scope.dataType = 1;
 
 			if (document.getElementById("mainGraph")) { //If there is already a graph from a prevoius search...
 			    document.getElementById("graph").removeChild(document.getElementById("mainGraph")); //Remove it.
