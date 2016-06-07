@@ -4,25 +4,30 @@
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
 <body ng-app="weatherApp">
-	<div class="container">
+	<div class="container" id="mainContainer">
 		<div ng-controller="mainCtrl">
 			<input type="text" placeholder="Enter a city name" ng-model="userInput" id="searchBar">
-			<input type="submit" value="search" id="submit" ng-click="sendData()">
-			<h1>{{cityName}} {{cityCountry}}</h1>
-			<h3>{{date}}</h3>
+			<input type="submit" value="search" id="submit1" ng-click="sendData()">
+			<h1>{{data.city.name}} {{data.city.country}}</h1>
+			<h3>{{data.list[0].dt_txt}}</h3>
 			<ul>
-				<li>Weather: {{cityWeather}}</li>
-				<li>Description: {{cityWeatherDesc}}</li>
-				<li>Temperature: {{cityTemp}}&deg;C</li>
-				<li>Pressure: {{cityPressure}} hPa</li>
-				<li>Humidity: {{cityHumidity}}&#37;</li>
-				<li>Wind Speed: {{cityWindSpeed}} meter/sec</li>
+				<li>Weather: {{data.list[0].weather[0].main}}</li>
+				<li>Description: {{data.list[0].weather[0].description}}</li>
+				<li>Temperature: {{data.list[0].main.temp}}&deg;C</li>
+				<li>Pressure: {{data.list[0].main.pressure}} hPa</li>
+				<li>Humidity: {{data.list[0].main.humidity}}&#37;</li>
+				<li>Wind Speed: {{data.list[0].wind.speed}} meter/sec</li>
 			</ul>
 			<img src="{{cityIcon}}">
-			<div ng-controller="graphCtrl" id="graph">
+			<div id="graph">
 				<h1>Graph</h1>
+				<input type="submit" style="display: none" id="submit2" ng-click="createGraph()">
+				<!-- <div id="svg">
+				</div> -->
 			</div>
 		</div>
+		
+		<!-- <graph-directive></graph-directive> -->
 	</div>
 	<script type="text/javascript" src="/scripts/vendor.bundle.js"></script>
 	<script type="text/javascript" src="/scripts/data.bundle.js"></script>
