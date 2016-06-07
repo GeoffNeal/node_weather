@@ -1,4 +1,6 @@
-#graph {
-	max-width: 100%;
-	width: 80vw;
+.axis path,
+.axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
 }

@@ -12724,39 +12724,51 @@ webpackJsonp([0],[
 				//Set the $scope variables.
 				$scope.data = data;
 				$scope.cityIcon = iconUrl;
+				$scope.dataType = 4;
+
+				if (document.getElementById("mainGraph")) { //If there is already a graph from a prevoius search...
+				    document.getElementById("graph").removeChild(document.getElementById("mainGraph")); //Remove it.
+				}
 
 
-
-
-
-				var yMax = d3.max(organiseArray()[1
-	              // (function() {
-	              //   if (dataType === "1") {
-	              //     return 1;
-	              //   } else if(dataType === "2") {
-	              //     return 2;
-	              //   } else if(dataType === "3") {
-	              //     return 3;
-	              //   } else {
-	              //     return 4;
-	              //   };
-	              // })()
+				//Find the largest value in the dataset to go along the y axis.
+				var yMax = d3.max(organiseArray()[
+	                (function() {
+	                    switch ($scope.dataType) {
+	                	    case 2:
+	                  		    return 2;
+	                  		    break;
+	                	    case 3:
+	                            return 3;
+	                            break;
+	                        case 4:
+	                            return 4;
+	                            break;
+	                	    default:
+	                  		    return 1;
+	                    };
+	                })()
 	            ], function(element) {
 	              return element + 1;
 	            });
 
-		        var yMin = d3.min(organiseArray()[1
-		            // (function() {
-		            //     if (dataType === "1") {
-		            //       return 1;
-		            //     } else if(dataType === "2") {
-		            //       return 2;
-		            //     } else if(dataType === "3") {
-		            //       return 3;
-		            //     } else {
-		            //       return 4;
-		            //     };
-		            // })()
+				//Find the smallest value in the dataset to go along the y axis.
+		        var yMin = d3.min(organiseArray()[
+		            (function() {
+	                    switch ($scope.dataType) {
+	                	    case 2:
+	                  		    return 2;
+	                  		    break;
+	                	    case 3:
+	                            return 3;
+	                            break;
+	                        case 4:
+	                            return 4;
+	                            break;
+	                	    default:
+	                  		    return 1;
+	                    };
+	                })()
 		        ], function(element) {
 		            if((element - 1) < 0) {
 		                return 0;
@@ -12765,12 +12777,14 @@ webpackJsonp([0],[
 		            };
 		        });
 
+		        //Find the smallest value in the dataset to go along the x axis.
 		        var xMin = d3.min(dateTxtParser(organiseArray()[0], null), function(element) {
 		            var time = element;
 		            time.setTime(time.getTime() - 10800000);
 		            return time;
 		        });
 
+		        //Find the largest value in the dataset to go along the x axis.
 		        var xMax = d3.max(dateTxtParser(organiseArray()[0], null), function(element) {
 		            var time = element;
 		            time.setTime(time.getTime() + 21600000);
@@ -12842,18 +12856,22 @@ webpackJsonp([0],[
 		        var dataObjects = finalArr(organiseArray()).map(function(d) {
 		            return {
 		                date: d[0],
-		                close: d[1
-		                    // (function() {
-		                    //     if(dataType === "1") {
-		                    //         return 1;
-		                    //     } else if(dataType === "2") {
-		                    //         return 2;
-		                    //     } else if(dataType === "3") {
-		                    //         return 3;
-		                    //     } else {
-		                    //         return 4;
-		                    //     }
-		                    // })()
+		                close: d[
+		                    (function() {
+			                    switch ($scope.dataType) {
+			                	    case 2:
+			                  		    return 2;
+			                  		    break;
+			                	    case 3:
+			                            return 3;
+			                            break;
+			                        case 4:
+			                            return 4;
+			                            break;
+			                	    default:
+			                  		    return 1;
+			                    };
+			                })()
 		                ]
 		            }
 		        });
@@ -12897,6 +12915,7 @@ webpackJsonp([0],[
 				    //Position the graph.
 				    var svg = d3.select("#graph") 
 				            .append("svg")
+				            .attr("id", "mainGraph")
 				            .attr("height", height + padding * 2)
 				            .attr("width", width + padding * 2)
 				            .append("g")
@@ -12917,18 +12936,22 @@ webpackJsonp([0],[
 	                            .interpolate("cardinal");
 
 	                var line1 = svg.append("path") //Add the valueline
-	                            .attr("stroke", "#fd3400"
-	                            // 	(function() {
-	                            //     if(dataType === "1") {
-	                            //         return "#fd3400";
-	                            //     } else if(dataType === "2") {
-	                            //         return "#0a9d6c";
-	                            //     } else if(dataType === "3") {
-	                            //         return "#976578";
-	                            //     } else {
-	                            //         return "#05639a";
-	                            //     }
-	                            // })()
+	                            .attr("stroke", 
+	                            	(function() {
+					                    switch ($scope.dataType) {
+					                	    case 2:
+					                  		    return "#0a9d6c";
+					                  		    break;
+					                	    case 3:
+					                            return "#976578";
+					                            break;
+					                        case 4:
+					                            return "#05639a";
+					                            break;
+					                	    default:
+					                  		    return "#fd3400";
+					                    };
+					                })()
 	                            )
 	                            .attr("stroke-width", 2)
 	                            .attr("fill", "none")
@@ -12965,24 +12988,25 @@ webpackJsonp([0],[
 					    .attr("x",0 - (height / 2))
 					    .attr("dy", "1em")
 					    .style("text-anchor", "middle")
-					    .text("Temperature (&deg;C)"
-					    // 	function() {
-					    //     switch(dataType) {
-					    //         case "2":
-					    //             return "Pressure (hPa)";
-					    //             break;
-					    //         case "3":
-					    //             return "Wind Speed (meters/sec)";
-					    //             break;
-					    //         case "4":
-					    //             return "Humidity (%)";
-					    //             break;
-					    //         default:
-					    //             return "Temperature (&deg;C)";
-					    //     }
-					    // }
+					    .text(
+					    	function() {
+						        switch($scope.dataType) {
+						            case 2:
+						                return "Pressure (hPa)";
+						                break;
+						            case 3:
+						                return "Wind Speed (meters/sec)";
+						                break;
+						            case 4:
+						                return "Humidity (%)";
+						                break;
+						            default:
+						                return "Temperature (&deg;C)";
+						        }
+						    }
 					    );
 
+					//Add the dots
 					var dots = svg.selectAll('circle')
 					        .data(dataObjects)
 					        .enter()
