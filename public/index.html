@@ -5,26 +5,37 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body ng-app="weatherApp">
-	<div class="container" id="mainContainer">
+	<div class="container">
+
 		<div ng-controller="mainCtrl">
-			<input type="text" placeholder="Enter a city name" ng-model="userInput" id="searchBar">
-			<input type="submit" value="search" id="submit1" ng-click="sendData()">
-			<h1>{{data.city.name}} {{data.city.country}}</h1>
-			<h3>{{data.list[0].dt_txt}}</h3>
-			<ul>
-				<li>Weather: {{data.list[0].weather[0].main}}</li>
-				<li>Description: {{data.list[0].weather[0].description}}</li>
-				<li>Temperature: {{data.list[0].main.temp}}&deg;C</li>
-				<li>Pressure: {{data.list[0].main.pressure}} hPa</li>
-				<li>Humidity: {{data.list[0].main.humidity}}&#37;</li>
-				<li>Wind Speed: {{data.list[0].wind.speed}} meter/sec</li>
-			</ul>
-			<img src="{{cityIcon}}">
-			<div id="graph">
-				<h1>Graph</h1>
-				<input type="submit" style="display: none" id="submit2" ng-click="createGraph()">
-				<!-- <div id="svg">
-				</div> -->
+			<div class="row">
+				<div class="col-md-3">
+					<input type="text" placeholder="Enter a city name" ng-model="userInput" id="searchBar">
+					<input type="submit" value="search" id="submit1" ng-click="sendData()">
+					<h1>{{data.city.name}} {{data.city.country}}</h1>
+					<h3>{{data.list[0].dt_txt}}</h3>
+					<ul>
+						<li>Weather: {{data.list[0].weather[0].main}}</li>
+						<li>Description: {{data.list[0].weather[0].description}}</li>
+						<li>Temperature: {{data.list[0].main.temp}}&deg;C</li>
+						<li>Pressure: {{data.list[0].main.pressure}} hPa</li>
+						<li>Humidity: {{data.list[0].main.humidity}}&#37;</li>
+						<li>Wind Speed: {{data.list[0].wind.speed}} meter/sec</li>
+					</ul>
+					<img src="{{cityIcon}}">
+					<button class="btn" ng-click="sendData(1)">Temperature</button>
+					<button class="btn" ng-click="sendData(2)">Pressure</button>
+					<button class="btn" ng-click="sendData(3)">Wind Speed</button>
+					<button class="btn" ng-click="sendData(4)">Humidity</button>
+				</div>
+				<div class="col-md-7" id="graph-container">
+					<div id="graph">
+						<h1>Graph</h1>
+						<input type="submit" style="display: none" id="submit2" ng-click="createGraph()">
+						<!-- <div id="svg">
+						</div> -->
+					</div>
+				</div>
 			</div>
 		</div>
 		

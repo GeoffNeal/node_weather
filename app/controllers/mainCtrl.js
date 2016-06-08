@@ -24,7 +24,7 @@ angular.module("weatherApp")
 	});
 
 	//Get the user input then call the getData method.
-	$scope.sendData = function() {
+	$scope.sendData = function(dataType) {
 		dataService.getData($scope.userInput, function(response) {
 			var data = response.data;
 			var iconUrl = "http://openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png";
@@ -33,7 +33,7 @@ angular.module("weatherApp")
 			//Set the $scope variables.
 			$scope.data = data;
 			$scope.cityIcon = iconUrl;
-			$scope.dataType = 1;
+			$scope.dataType = dataType;
 
 			if (document.getElementById("mainGraph")) { //If there is already a graph from a prevoius search...
 			    document.getElementById("graph").removeChild(document.getElementById("mainGraph")); //Remove it.
@@ -188,7 +188,7 @@ angular.module("weatherApp")
 	        function drawGraph() {
 
 	        	//Get container width.
-	        	var container = document.getElementById("mainContainer");
+	        	var container = document.getElementById("graph-container");
 	        	var containerWidth = parseFloat(window.getComputedStyle(container, null).getPropertyValue("width"));
 	        	console.log(containerWidth);
 
