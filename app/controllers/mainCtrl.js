@@ -195,7 +195,7 @@ angular.module("weatherApp")
 	        	//Set graph width to match container.
 	        	document.getElementById("graph").style.width = containerWidth;
 	        	var width = containerWidth;
-	        	var height = width / 2.3;
+	        	var height = width / 2.9;
 	        	var padding = 70;
 	        	console.log(width);
 	        	console.log(height);

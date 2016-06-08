@@ -1,3 +1,43 @@
+/*********************************
+HEADER
+*********************************/
+
+header {
+	background: linear-gradient(90deg, #a30320 10%, transparent);
+	color: #edbbbb;
+	padding: 20px 0 20px;
+	margin-bottom: 30px;
+}
+
+header h1 {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 0.0625em;
+	margin: 10px 0 10px;
+}
+
+/*********************************
+LAYOUT
+*********************************/
+
+#info-block ul {
+	padding: 0;
+	list-style: none;
+}
+
+#info-block li {
+	margin-bottom: 10px;
+}
+
+#weatherIcon {
+	width: 25%;
+}
+
+/*********************************
+GRAPH
+*********************************/
+
 .axis path,
 .axis line {
     fill: none;

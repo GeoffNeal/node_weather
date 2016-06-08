@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Node Weather App</title>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600italic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body ng-app="weatherApp">
-	<div class="container">
-
+	<header>
+		<div class="container">
+			<h1>Weather Data</h1>
+		</div>
+	</header>
+	<div class="container-fluid">
 		<div ng-controller="mainCtrl">
 			<div class="row">
-				<div class="col-md-3">
+				<div class="col-md-3 text-center" id="info-block">
 					<input type="text" placeholder="Enter a city name" ng-model="userInput" id="searchBar">
 					<input type="submit" value="search" id="submit1" ng-click="sendData()">
 					<h1>{{data.city.name}} {{data.city.country}}</h1>
@@ -22,15 +29,16 @@
 						<li>Humidity: {{data.list[0].main.humidity}}&#37;</li>
 						<li>Wind Speed: {{data.list[0].wind.speed}} meter/sec</li>
 					</ul>
-					<img src="{{cityIcon}}">
-					<button class="btn" ng-click="sendData(1)">Temperature</button>
-					<button class="btn" ng-click="sendData(2)">Pressure</button>
-					<button class="btn" ng-click="sendData(3)">Wind Speed</button>
-					<button class="btn" ng-click="sendData(4)">Humidity</button>
+					<img id="weatherIcon" src="{{cityIcon}}">
+					<ul>
+						<li><button class="btn" ng-click="sendData(1)">Temperature</button></li>
+						<li><button class="btn" ng-click="sendData(2)">Pressure</button></li>
+						<li><button class="btn" ng-click="sendData(3)">Wind Speed</button></li>
+						<li><button class="btn" ng-click="sendData(4)">Humidity</button></li>
+					</ul>
 				</div>
-				<div class="col-md-7" id="graph-container">
+				<div class="col-md-9 text-center" id="graph-container">
 					<div id="graph">
-						<h1>Graph</h1>
 						<input type="submit" style="display: none" id="submit2" ng-click="createGraph()">
 						<!-- <div id="svg">
 						</div> -->

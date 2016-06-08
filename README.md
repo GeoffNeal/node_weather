@@ -30,7 +30,5 @@ At the moment this is still being developed but the basic functionality works, s
 
 A graph should appear with weather data *(temperature by default)* on that city and there will also be a summary of the data alongside the graph.
 
-**N.B: There is currently no way of changing the weather type on the graph. Coming soon though.**
-
 
 
