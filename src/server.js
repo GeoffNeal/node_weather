@@ -1,8 +1,7 @@
 'use strict';
 
 //Port number and ip address.
-var port = process.env.PORT || 3000,
-    address = "http://127.0.0.1";
+var port = process.env.PORT || 3000;
 
 //Create the server instance and the router.
 var express = require("express"),
@@ -19,5 +18,5 @@ app.use("/api", router);
 
 //Start the server.
 app.listen(port, function() {
-	console.log("Server running at " + address + ":" + port);
+	console.log("Server running at my-site:" + port);
 });
