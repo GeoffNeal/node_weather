@@ -1,7 +1,7 @@
 'use strict';
 
 //Port number and ip address.
-var port = 3000,
+var port = process.env.PORT || 3000,
     address = "http://127.0.0.1";
 
 //Create the server instance and the router.
