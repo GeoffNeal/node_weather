@@ -12702,8 +12702,7 @@ webpackJsonp([0],[
 		* If the submit button is clicked the data is sent,
 		* but if the user presses the return key nothing will happen.
 		* So this block of code triggers the click event on the submit buttons
-		* in the mainCtrl and graphCtrl (will not work if user clicks the 
-		* submit button) if the return key is pressed.
+		* in the mainCtrl if the return key is pressed.
 		*/
 		document.getElementById("searchBar")
 		.addEventListener("keyup", function(event) {
@@ -12714,8 +12713,19 @@ webpackJsonp([0],[
 		    }
 		});
 
-		//Get the user input then call the getData method.
+		//Get the user input then call the getData method from the dataService.
+
+		/*
+		* dataType represents the number that corresponds to a weather 
+		* type (e.g: 1 = Temperature, 2 = Pressure etc).
+		*/
 		$scope.sendData = function(dataType) {
+
+			/*
+			* $scope.userInput represents the name of the city the user types in.
+			* It is passed to the Express app by the getData method, and used in the
+			* API call to the open weather map (See: http://openweathermap.org/api).
+			*/
 			dataService.getData($scope.userInput, function(response) {
 				var data = response.data;
 				var iconUrl = "http://openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png";
@@ -12885,7 +12895,7 @@ webpackJsonp([0],[
 
 		        	//Set graph width to match container.
 		        	document.getElementById("graph").style.width = containerWidth;
-		        	var width = containerWidth;
+		        	var width = containerWidth - 140;
 		        	var height = width / 2.9;
 		        	var padding = 70;
 		        	console.log(width);
@@ -12921,6 +12931,8 @@ webpackJsonp([0],[
 				            .append("g")
 				            .attr("id", "svg")
 				            .attr("transform", "translate(" + padding + "," + (padding - 30) + ")");
+
+				    console.log(mainGraph.width);
 
 
 
@@ -13001,7 +13013,7 @@ webpackJsonp([0],[
 						                return "Humidity (%)";
 						                break;
 						            default:
-						                return "Temperature (&deg;C)";
+						                return "Temperature (" + (function() { return "&deg;" })() + "C)";
 						        }
 						    }
 					    );
@@ -13032,6 +13044,21 @@ webpackJsonp([0],[
 					        "fill": d3.select("#line1").attr("stroke")
 					    });
 					};
+
+					dots.on("mouseenter", function(d, i) {
+						console.log(d);
+			            var lineColor = document.getElementById("line1").getAttribute("stroke");
+			            var dotColor = lineColor.toString().substring(0, 5);
+			            var dot = d3.select(this);
+			            dot.style({"fill": dotColor + "ff", "stroke": "#000"});
+			            dot.append("svg:title")
+			            .text(function(d) { return d.close });
+			        });
+
+			        dots.on("mouseleave", function(d, i) {
+			            var dot = d3.select(this);
+			            dot.style({"fill": document.getElementById("line1").getAttribute("stroke"), "stroke": "#999"});
+			        });
 		        }
 
 		        drawGraph();

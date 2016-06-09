@@ -10,7 +10,7 @@
 <body ng-app="weatherApp">
 	<header>
 		<div class="container">
-			<h1>Weather Data</h1>
+			<h1>Weather Forecast</h1>
 		</div>
 	</header>
 	<div class="container-fluid">
@@ -30,25 +30,23 @@
 						<li>Wind Speed: {{data.list[0].wind.speed}} meter/sec</li>
 					</ul>
 					<img id="weatherIcon" src="{{cityIcon}}">
-					<ul>
-						<li><button class="btn" ng-click="sendData(1)">Temperature</button></li>
-						<li><button class="btn" ng-click="sendData(2)">Pressure</button></li>
-						<li><button class="btn" ng-click="sendData(3)">Wind Speed</button></li>
-						<li><button class="btn" ng-click="sendData(4)">Humidity</button></li>
-					</ul>
-				</div>
+					
+				</div> <!-- col ends -->
 				<div class="col-md-9 text-center" id="graph-container">
 					<div id="graph">
+						<ul>
+							<li><button class="btn" ng-click="sendData(1)">Temperature</button></li>
+							<li><button class="btn" ng-click="sendData(2)">Pressure</button></li>
+							<li><button class="btn" ng-click="sendData(3)">Wind Speed</button></li>
+							<li><button class="btn" ng-click="sendData(4)">Humidity</button></li>
+						</ul>
 						<input type="submit" style="display: none" id="submit2" ng-click="createGraph()">
-						<!-- <div id="svg">
-						</div> -->
 					</div>
-				</div>
-			</div>
-		</div>
-		
-		<!-- <graph-directive></graph-directive> -->
-	</div>
+				</div> <!-- col ends -->
+			</div> <!-- row ends -->
+		</div> <!-- mainCtrl ends -->
+
+	</div> <!-- container ends -->
 	<script type="text/javascript" src="/scripts/vendor.bundle.js"></script>
 	<script type="text/javascript" src="/scripts/data.bundle.js"></script>
 </body>
