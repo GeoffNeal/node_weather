@@ -44,6 +44,39 @@ LAYOUT
 }
 
 /*********************************
+ANIMATIONS
+*********************************/
+
+/*#searchContainer input {
+	padding: inherit;
+	margin-top: inherit;
+	transition: padding 1s cubic-bezier(.7, -0.50, .31, 1.70), margin-top 1s cubic-bezier(.7, -0.50, .31, 1.70);
+}
+
+#searchContainer input:hover {
+	padding: 2.5px;
+	margin-top: -25px;
+}*/
+
+#info-block h1,
+#info-block h3,
+#info-block ul,
+#info-block img,
+#graph ul {
+	opacity: 0;
+	transition-property: opacity;
+	transition-duration: 1s;
+}
+
+/*#info-block h1:hover,
+#info-block h3:hover,
+#info-block ul:hover,
+#info-block img:hover,
+#graph button:hover {
+	opacity: 1;
+}*/
+
+/*********************************
 GRAPH
 *********************************/
 

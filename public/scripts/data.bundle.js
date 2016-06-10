@@ -12713,6 +12713,31 @@ webpackJsonp([0],[
 		    }
 		});
 
+		//Trigger CSS3 animation so that when a value is entered the statistics smoothly appear.
+		$scope.appear = function() {
+			
+			var infoBlock = document.getElementById("info-block");
+			var graphContainer = document.getElementById("graph");
+			// console.log(infoBlock.childNodes);
+			var animations = {
+				header1: infoBlock.childNodes[3],
+				header2: infoBlock.childNodes[5],
+				ul: infoBlock.childNodes[7],
+				img: infoBlock.childNodes[9],
+				btnUl :graphContainer.childNodes[1]
+			}
+
+			for(var elem in animations) {
+				console.log(animations[elem]);
+				animations[elem].style.opacity = 1;
+				
+				// setTimeout(function() {
+				// 	animations[elem].style.opacity = 1;
+				// }, 1000);
+			}
+
+		}
+
 		//Get the user input then call the getData method from the dataService.
 
 		/*

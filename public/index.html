@@ -17,8 +17,11 @@
 		<div ng-controller="mainCtrl">
 			<div class="row">
 				<div class="col-md-3 text-center" id="info-block">
-					<input type="text" placeholder="Enter a city name" ng-model="userInput" id="searchBar">
-					<input type="submit" value="search" id="submit1" ng-click="sendData()">
+					<div id="searchContainer">
+						<input type="text" placeholder="Enter a city name" ng-model="userInput" id="searchBar">
+						<input type="submit" value="search" id="submit1" ng-click="sendData(); appear()">
+					</div>
+					
 					<h1>{{data.city.name}} {{data.city.country}}</h1>
 					<h3>{{data.list[0].dt_txt}}</h3>
 					<ul>
