@@ -32,6 +32,7 @@ LAYOUT
 
 #weatherIcon {
 	width: 25%;
+	opacity: 0;
 }
 
 #graph ul {
@@ -62,17 +63,18 @@ ANIMATIONS
 #info-block h3,
 #info-block ul,
 #info-block img,
-#graph ul {
+#graph {
 	opacity: 0;
 	transition-property: opacity;
-	transition-duration: 1s;
+	transition-duration: 2s;
+	transition-delay: 1s;
 }
 
 /*#info-block h1:hover,
 #info-block h3:hover,
 #info-block ul:hover,
-#info-block img:hover,
-#graph button:hover {
+#info-block img:hover,*/
+/*#graph button:hover {
 	opacity: 1;
 }*/
 

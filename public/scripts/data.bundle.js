@@ -12718,14 +12718,16 @@ webpackJsonp([0],[
 			
 			var infoBlock = document.getElementById("info-block");
 			var graphContainer = document.getElementById("graph");
-			// console.log(infoBlock.childNodes);
+			console.log(infoBlock.childNodes);
 			var animations = {
 				header1: infoBlock.childNodes[3],
 				header2: infoBlock.childNodes[5],
 				ul: infoBlock.childNodes[7],
 				img: infoBlock.childNodes[9],
-				btnUl :graphContainer.childNodes[1]
+				graph: graphContainer
 			}
+
+			console.log(animations);
 
 			for(var elem in animations) {
 				console.log(animations[elem]);
@@ -12734,6 +12736,20 @@ webpackJsonp([0],[
 				// setTimeout(function() {
 				// 	animations[elem].style.opacity = 1;
 				// }, 1000);
+
+			/*
+			* IDEAS
+			*
+			* When user enters new city all contents fade out then fade back in with
+			* the new data.
+			*
+			* Have the search bar in the middle of the screen at start-up, when a 
+			* city is entered by the user, the search bar moves to the left of the
+			* screen. Will need to remove elements on the page at start-up (mainly 
+			* the weather buttons) using the ng-hide directive then bring them back
+			* with the ng-show directive.
+			*/
+
 			}
 
 		}
@@ -12878,6 +12894,7 @@ webpackJsonp([0],[
 		            
 		        }
 
+		        //Convert 
 		        function finalArr(array) {
 		            var arrOfDestiny = [];
 		            for(var i = 0; i < data.list.length; i++) {
