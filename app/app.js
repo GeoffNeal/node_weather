@@ -8,3 +8,4 @@ angular.module("weatherApp", ['ngAnimate', 'ui.bootstrap']);
 
 require("./controllers/mainCtrl.js");
 require("./services/dataService.js");
+require("./directives/welcome.js");

@@ -27,7 +27,9 @@ angular.module("weatherApp")
 		
 		var infoBlock = document.getElementById("info-block");
 		var graphContainer = document.getElementById("graph");
-		console.log(infoBlock.childNodes);
+		var welcome = document.getElementById("welcome");
+
+		// console.log(infoBlock.childNodes);
 		var animations = {
 			header1: infoBlock.childNodes[3],
 			header2: infoBlock.childNodes[5],
@@ -36,20 +38,12 @@ angular.module("weatherApp")
 			graph: graphContainer
 		}
 
-		// graphContainer.style.display = "block";
-		// graphContainer.style.opacity = 0;
-
+		welcome.style.opacity = 0;
 		infoBlock.childNodes[1].style.margin = "0 0 0 0vw";
 
-		// console.log(animations);
-
 		for(var elem in animations) {
-			console.log(animations[elem]);
+			// console.log(animations[elem]);
 			animations[elem].style.opacity = 1;
-			
-			// setTimeout(function() {
-			// 	animations[elem].style.opacity = 1;
-			// }, 1000);
 		}
 
 		/*
@@ -57,12 +51,6 @@ angular.module("weatherApp")
 		*
 		* When user enters new city all contents fade out then fade back in with
 		* the new data.
-		*
-		* Have the search bar in the middle of the screen at start-up, when a 
-		* city is entered by the user, the search bar moves to the left of the
-		* screen. Will need to remove elements on the page at start-up (mainly 
-		* the weather buttons) using the ng-hide directive then bring them back
-		* with the ng-show directive.
 		*/
 
 	}

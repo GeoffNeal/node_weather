@@ -12,6 +12,7 @@ webpackJsonp([0],[
 
 	__webpack_require__(6);
 	__webpack_require__(8);
+	__webpack_require__(9);
 
 /***/ },
 /* 1 */,
@@ -12718,7 +12719,9 @@ webpackJsonp([0],[
 			
 			var infoBlock = document.getElementById("info-block");
 			var graphContainer = document.getElementById("graph");
-			console.log(infoBlock.childNodes);
+			var welcome = document.getElementById("welcome");
+
+			// console.log(infoBlock.childNodes);
 			var animations = {
 				header1: infoBlock.childNodes[3],
 				header2: infoBlock.childNodes[5],
@@ -12727,20 +12730,12 @@ webpackJsonp([0],[
 				graph: graphContainer
 			}
 
-			// graphContainer.style.display = "block";
-			// graphContainer.style.opacity = 0;
-
+			welcome.style.opacity = 0;
 			infoBlock.childNodes[1].style.margin = "0 0 0 0vw";
 
-			// console.log(animations);
-
 			for(var elem in animations) {
-				console.log(animations[elem]);
+				// console.log(animations[elem]);
 				animations[elem].style.opacity = 1;
-				
-				// setTimeout(function() {
-				// 	animations[elem].style.opacity = 1;
-				// }, 1000);
 			}
 
 			/*
@@ -12748,12 +12743,6 @@ webpackJsonp([0],[
 			*
 			* When user enters new city all contents fade out then fade back in with
 			* the new data.
-			*
-			* Have the search bar in the middle of the screen at start-up, when a 
-			* city is entered by the user, the search bar moves to the left of the
-			* screen. Will need to remove elements on the page at start-up (mainly 
-			* the weather buttons) using the ng-hide directive then bring them back
-			* with the ng-show directive.
 			*/
 
 		}
@@ -13133,6 +13122,23 @@ webpackJsonp([0],[
 			$http.get("/api/cityData/" + city).then(cb_response);
 		}
 
+	});
+
+/***/ },
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var angular = __webpack_require__(1);
+
+	angular.module('weatherApp')
+	.directive('welcome', function(){
+	  return {
+	    templateUrl: 'views/welcome.html',
+	    replace: true,
+	    controller: 'mainCtrl'
+	  }
 	});
 
 /***/ }

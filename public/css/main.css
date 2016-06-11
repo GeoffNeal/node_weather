@@ -1,4 +1,17 @@
 /*********************************
+WELCOME PAGE
+*********************************/
+
+#welcome {
+	position: absolute;
+	margin: 40px 10px 10px 10px;
+	left: 0;
+	right: 0;
+	opacity: 1;
+	transition: opacity 1s linear;
+}
+
+/*********************************
 HEADER
 *********************************/
 
@@ -95,11 +108,11 @@ ANIMATIONS
 #info-block img,
 #graph {
 	opacity: 0;
-	-webkit-transition: opacity 1s 2s linear;
-	-moz-transition: opacity 1s 2s linear;
-	-o-transition: opacity 1s 2s linear;
+	-webkit-transition: opacity 1s 1.5s linear;
+	-moz-transition: opacity 1s 1.5s linear;
+	-o-transition: opacity 1s 1.5s linear;
 	transition-property: opacity;
-	transition-duration: 2s;
+	transition-duration: 1.5s;
 	transition-delay: 1s;
 }
 
