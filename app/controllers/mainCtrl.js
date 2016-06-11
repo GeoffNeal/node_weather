@@ -36,7 +36,12 @@ angular.module("weatherApp")
 			graph: graphContainer
 		}
 
-		console.log(animations);
+		// graphContainer.style.display = "block";
+		// graphContainer.style.opacity = 0;
+
+		infoBlock.childNodes[1].style.margin = "0 0 0 0vw";
+
+		// console.log(animations);
 
 		for(var elem in animations) {
 			console.log(animations[elem]);
@@ -45,6 +50,7 @@ angular.module("weatherApp")
 			// setTimeout(function() {
 			// 	animations[elem].style.opacity = 1;
 			// }, 1000);
+		}
 
 		/*
 		* IDEAS
@@ -58,8 +64,6 @@ angular.module("weatherApp")
 		* the weather buttons) using the ng-hide directive then bring them back
 		* with the ng-show directive.
 		*/
-
-		}
 
 	}
 

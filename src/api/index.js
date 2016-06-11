@@ -8,7 +8,7 @@ var APIKEY = "f6d815f76f18ba0f08850d5aa4f03a55";
 
 //CRUD operations****************
 
-router.get("/cityData/:name", function(req, res) { //To get a single specific drawing.
+router.get("/cityData/:name", function(req, res) { //To get a single specific city.
 	var cityName = req.params.name;
 
 	//GET data from openweathermap
