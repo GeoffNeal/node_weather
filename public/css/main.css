@@ -4,7 +4,8 @@ WELCOME PAGE
 
 #welcome {
 	position: absolute;
-	margin: 40px 10px 10px 10px;
+	margin: 220px 10px 10px 10px;
+	top: 0;
 	left: 0;
 	right: 0;
 	opacity: 1;
@@ -23,6 +24,7 @@ header {
 }
 
 header h1 {
+	text-align: center;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 800;
 	text-transform: uppercase;
@@ -85,7 +87,7 @@ ANIMATIONS
 #searchContainer {
 	display: inline;
 	position: relative;
-	margin: 0 0 0 42.5vw;
+	
 	-webkit-transition: margin-left 1s cubic-bezier(.7, -0.50, .31, 1.70);
 	-moz-transition: margin-left 1s cubic-bezier(.7, -0.50, .31, 1.70);
 	-o-transition: margin-left 1s cubic-bezier(.7, -0.50, .31, 1.70);
@@ -134,3 +136,24 @@ GRAPH
     stroke: black;
     shape-rendering: crispEdges;
 }
+
+/*********************************
+MEDIA QUERIES
+*********************************/
+
+@media(min-width: 768px) {
+	header h1 {
+		text-align: left;
+	}
+}
+
+@media(min-width: 992px) {
+	#searchContainer {
+		margin: 0 0 0 40.5vw;
+	}
+}
+
+
+
+
+
