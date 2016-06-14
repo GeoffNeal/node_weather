@@ -78,10 +78,12 @@ LAYOUT
 	font-family: 'Open Sans', sans-serif;
 	list-style: none;
 	padding: 0;
+	margin-top: 40px;
 }
 
 #graph li {
-	display: inline-block;
+	display: block;
+	margin-top: 10px;
 }
 
 #graph button {
@@ -161,9 +163,21 @@ GRAPH
 MEDIA QUERIES
 *********************************/
 
+@media(min-width: 480px) {
+
+	#graph li {
+		display: inline-block;
+		margin-top: 0;
+	}
+}
+
 @media(min-width: 768px) {
 	header h1 {
 		text-align: left;
+	}
+
+	#graph ul {
+		margin-top: 0;
 	}
 }
 
