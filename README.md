@@ -4,6 +4,8 @@
 
 **An app that uses Angular and Express to collect up-to-date information on any city the user searches for.**
 
+This app is hosted on heroku at: **https://node-weather-forecast.herokuapp.com**. Please check it out!
+
 ---
 
 ###Installation
