@@ -34,7 +34,7 @@ angular.module("weatherApp")
 			header1: infoBlock.childNodes[3],
 			header2: infoBlock.childNodes[5],
 			ul: infoBlock.childNodes[7],
-			img: infoBlock.childNodes[9],
+			// img: infoBlock.childNodes[9],
 			graph: graphContainer
 		}
 

@@ -107,7 +107,7 @@ ANIMATIONS
 #info-block h1,
 #info-block h3,
 #info-block ul,
-#info-block img,
+/*#info-block img,*/
 #graph {
 	opacity: 0;
 	-webkit-transition: opacity 1s 1.5s linear;
