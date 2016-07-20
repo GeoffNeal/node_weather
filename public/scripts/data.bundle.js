@@ -13048,7 +13048,7 @@ webpackJsonp([0],[
 						                return "Humidity (%)";
 						                break;
 						            default:
-						                return "Temperature (" + (function() { return "&deg;" })() + "C)";
+						                return "Temperature (" + (function() { return "degrees " })() + "C)";
 						        }
 						    }
 					    );
