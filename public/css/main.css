@@ -2,125 +2,133 @@
 WELCOME PAGE
 *********************************/
 
+@import 'https://fonts.googleapis.com/css?family=Lato:300';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css';
+$speed: 2s;
 #welcome {
-	background-color: rgba(150, 150, 150, .6);
-	color: #f0f0f0;
-	padding: 50px;
-	font-family: 'Open Sans', sans-serif;
-	position: absolute;
-	margin: 220px 10px 10px 10px;
-	top: 0;
-	left: 0;
-	right: 0;
-	opacity: 1;
-	transition: opacity 1s linear;
+    background-color: rgba(150, 150, 150, .6);
+    color: #f0f0f0;
+    padding: 50px;
+    font-family: 'Open Sans', sans-serif;
+    position: absolute;
+    margin: 220px 10px 10px 10px;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    transition: opacity 1s linear;
 }
 
 #welcome h1 {
-	font-size: 3.3em;
-	font-weight: 700;
+    font-size: 3.3em;
+    font-weight: 700;
 }
 
 #welcome h3 {
-	font-size: 2em;
-	font-weight: 600;
-	font-style: italic;
+    font-size: 2em;
+    font-weight: 600;
+    font-style: italic;
 }
 
 #welcome p {
-	margin-top: 30px;
-	font-size: 1.3em;
+    margin-top: 30px;
+    font-size: 1.3em;
 }
+
 
 /*********************************
 HEADER
 *********************************/
 
 header {
-	background: linear-gradient(90deg, #a30320 10%, transparent);
-	color: #edbbbb;
-	padding: 20px 0 20px;
-	margin-bottom: 30px;
+    background: linear-gradient(90deg, #a30320 10%, transparent);
+    color: #edbbbb;
+    padding: 20px 0 20px;
+    margin-bottom: 30px;
 }
 
 header h1 {
-	text-align: center;
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 800;
-	text-transform: uppercase;
-	letter-spacing: 0.0625em;
-	margin: 10px 0 10px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.0625em;
+    margin: 10px 0 10px;
 }
+
 
 /*********************************
 LAYOUT
 *********************************/
 
 #info-block ul {
-	padding: 0;
-	list-style: none;
+    padding: 0;
+    list-style: none;
 }
 
 #info-block li {
-	margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 #weatherIcon {
-	width: 25%;
-	opacity: 0;
+    width: 25%;
+    opacity: 0;
 }
+
 
 /*#graph {
 	display: none;
 }*/
 
 #graph ul {
-	font-family: 'Open Sans', sans-serif;
-	list-style: none;
-	padding: 0;
-	margin-top: 40px;
+    font-family: 'Open Sans', sans-serif;
+    list-style: none;
+    padding: 0;
+    margin-top: 40px;
 }
 
 #graph li {
-	display: block;
-	margin-top: 10px;
+    display: block;
+    margin-top: 10px;
 }
 
 #graph button {
-	background-color: #fff!important;
-	color: #a30320;
-	border: 1px solid #a30320;
-	-webkit-transition: background-color .5s ease-out, color .5s ease-out, border .5s ease-out;
-	-moz-transition: background-color .5s ease-out, color .5s ease-out, border .5s ease-out;
-	-o-transition: background-color .5s ease-out, color .5s ease-out, border .5s ease-out;
-	transition: background-color .5s ease-out, color .5s ease-out, border .5s ease-out;
+    background-color: #fff!important;
+    color: #a30320;
+    border: 1px solid #a30320;
+    -webkit-transition: background-color .5s ease-out, color .5s ease-out, border .5s ease-out;
+    -moz-transition: background-color .5s ease-out, color .5s ease-out, border .5s ease-out;
+    -o-transition: background-color .5s ease-out, color .5s ease-out, border .5s ease-out;
+    transition: background-color .5s ease-out, color .5s ease-out, border .5s ease-out;
 }
 
 #graph button:hover {
-	background-color: #a30320!important;
-	color: #fff;
-	border: 1px solid #fff;
+    background-color: #a30320!important;
+    color: #fff;
+    border: 1px solid #fff;
 }
+
 
 /*********************************
 ANIMATIONS
 *********************************/
 
 #searchContainer {
-	display: inline;
-	position: relative;
-	
-	-webkit-transition: margin-left 1s cubic-bezier(.7, -0.50, .31, 1.70);
-	-moz-transition: margin-left 1s cubic-bezier(.7, -0.50, .31, 1.70);
-	-o-transition: margin-left 1s cubic-bezier(.7, -0.50, .31, 1.70);
-	transition: margin-left 1s cubic-bezier(.7, -0.50, .31, 1.70);
-	z-index: 1;
+    display: inline;
+    position: relative;
+    -webkit-transition: margin-left 1s cubic-bezier(.7, -0.50, .31, 1.70);
+    -moz-transition: margin-left 1s cubic-bezier(.7, -0.50, .31, 1.70);
+    -o-transition: margin-left 1s cubic-bezier(.7, -0.50, .31, 1.70);
+    transition: margin-left 1s cubic-bezier(.7, -0.50, .31, 1.70);
+    z-index: 1;
 }
+
 
 /*#searchContainer input {
 	display: inline-block;
 	margin-right: 50px;
 }*/
+
 
 /*#searchContainer:hover {
 	margin-left: 10vw;
@@ -129,24 +137,69 @@ ANIMATIONS
 #info-block h1,
 #info-block h3,
 #info-block ul,
+
 /*#info-block img,*/
+
 #graph {
-	opacity: 0;
-	-webkit-transition: opacity 1s 1.5s linear;
-	-moz-transition: opacity 1s 1.5s linear;
-	-o-transition: opacity 1s 1.5s linear;
-	transition-property: opacity;
-	transition-duration: 1.5s;
-	transition-delay: 1s;
+    opacity: 0;
+    -webkit-transition: opacity 1s 1.5s linear;
+    -moz-transition: opacity 1s 1.5s linear;
+    -o-transition: opacity 1s 1.5s linear;
+    transition-property: opacity;
+    transition-duration: 1.5s;
+    transition-delay: 1s;
 }
+
+.weather {
+    background-color: #DAE3FD;
+    transition: background-color $speed ease;
+    .thunder & {
+        background-color: #9FA4AD;
+    }
+    .rain & {
+        background-color: #D8D8D8;
+    }
+    .sun & {
+        background-color: #ccccff;
+    }
+    #inner {
+        background-color: rgba(255, 255, 255, 1);
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
+    }
+    .cloud {
+        transition: fill $speed ease;
+    }
+    #cloud1 {
+        fill: #efefef;
+        .thunder & {
+            fill: #9FA4AD;
+        }
+    }
+    #cloud2 {
+        fill: #E6E6E6;
+        .thunder & {
+            fill: #8B8E98;
+        }
+    }
+    #cloud3 {
+        fill: #D5D5D5;
+        .thunder & {
+            fill: #7B7988;
+        }
+    }
+}
+
 
 /*#info-block h1:hover,
 #info-block h3:hover,
 #info-block ul:hover,
 #info-block img:hover,*/
+
+
 /*#graph button:hover {
 	opacity: 1;
 }*/
+
 
 /*********************************
 GRAPH
@@ -159,35 +212,29 @@ GRAPH
     shape-rendering: crispEdges;
 }
 
+
 /*********************************
 MEDIA QUERIES
 *********************************/
 
 @media(min-width: 480px) {
-
-	#graph li {
-		display: inline-block;
-		margin-top: 0;
-	}
+    #graph li {
+        display: inline-block;
+        margin-top: 0;
+    }
 }
 
 @media(min-width: 768px) {
-	header h1 {
-		text-align: left;
-	}
-
-	#graph ul {
-		margin-top: 0;
-	}
+    header h1 {
+        text-align: left;
+    }
+    #graph ul {
+        margin-top: 0;
+    }
 }
 
 @media(min-width: 992px) {
-	#searchContainer {
-		margin: 0 0 0 40.5vw;
-	}
+    #searchContainer {
+        margin: 0 0 0 40.5vw;
+    }
 }
-
-
-
-
-

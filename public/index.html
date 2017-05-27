@@ -1,70 +1,92 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Node Weather App</title>
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600italic' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Node Weather App</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+
+
 </head>
+
 <body ng-app="weatherApp">
-	<header>
-		<div class="container">
-			<h1>Weather Forecast</h1>
-		</div>
-	</header>
-	<div class="container-fluid">
-		<div ng-controller="mainCtrl">
-			<div class="row">
-				<div class="col-md-3 text-center" id="info-block">
-					<div id="searchContainer">
-						<input type="text" placeholder="Enter a city name" ng-model="userInput" id="searchBar">
-						<input type="submit" value="search" id="submit1" ng-click="sendData(); appear()">
-					</div>
-					
-					<h1>{{data.city.name}} {{data.city.country}}</h1>
-					<h3>{{data.list[0].dt_txt}}</h3>
-					<ul>
-						<li>Weather: {{data.list[0].weather[0].main}}</li>
-						<li>Description: {{data.list[0].weather[0].description}}</li>
-						<li>Temperature: {{data.list[0].main.temp}}&deg;C</li>
-						<li>Pressure: {{data.list[0].main.pressure}} hPa</li>
-						<li>Humidity: {{data.list[0].main.humidity}}&#37;</li>
-						<li>Wind Speed: {{data.list[0].wind.speed}} meter/sec</li>
-					</ul>
-					<!-- <img id="weatherIcon" src="{{cityIcon}}"> -->
-					
-				</div> <!-- col ends -->
-				<welcome></welcome>
-				<div class="col-md-9 text-center" id="graph-container">
+    <header>
+        <div class="container">
+            <h1>Weather Forecast</h1>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div ng-controller="mainCtrl">
+            <div class="row">
+                <div class="col-md-3 text-center" id="info-block">
+                    <div id="searchContainer">
+                        <input type="text" placeholder="Enter a city name" ng-model="userInput" id="searchBar">
+                    </div>
+                    <input type="submit" value="search" id="submit1" ng-click="sendData(); appear()">
+                    </center>
 
-					<div id="graph">
-						<ul>
-							<li><button class="btn" ng-click="sendData(1)">Temperature</button></li>
-							<li><button class="btn" ng-click="sendData(2)">Pressure</button></li>
-							<li><button class="btn" ng-click="sendData(3)">Wind Speed</button></li>
-							<li><button class="btn" ng-click="sendData(4)">Humidity</button></li>
-						</ul>
-						<input type="submit" style="display: none" id="submit2" ng-click="createGraph()">
-					</div>
-				</div> <!-- col ends -->
-			</div> <!-- row ends -->
-		</div> <!-- mainCtrl ends -->
 
-	</div> <!-- container ends -->
-	<script type="text/javascript" src="/scripts/vendor.bundle.js"></script>
-	<script type="text/javascript" src="/scripts/data.bundle.js"></script>
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+                    <h1>{{data.city.name}} {{data.city.country}}</h1>
+                    <h3>{{data.list[0].dt_txt}}</h3>
+                    <ul>
+                        <li>Weather: {{data.list[0].weather[0].main}}</li>
+                        <li>Description: {{data.list[0].weather[0].description}}</li>
+                        <li>Temperature: {{data.list[0].main.temp}}&deg;C</li>
+                        <li>Pressure: {{data.list[0].main.pressure}} hPa</li>
+                        <li>Humidity: {{data.list[0].main.humidity}}&#37;</li>
+                        <li>Wind Speed: {{data.list[0].wind.speed}} meter/sec</li>
+                    </ul>
 
-	  ga('create', 'UA-79295813-1', 'auto');
-	  ga('send', 'pageview');
+                    <!-- <img id="weatherIcon" src="{{cityIcon}}"> -->
+                </div>
+                <!-- col ends -->
 
-	</script>
+                <welcome></welcome>
+                <div class="col-md-9 text-center" id="graph-container">
+
+                    <div id="graph">
+                        <ul>
+                            <li><button class="btn" ng-click="sendData(1)">Temperature</button></li>
+                            <li><button class="btn" ng-click="sendData(2)">Pressure</button></li>
+                            <li><button class="btn" ng-click="sendData(3)">Wind Speed</button></li>
+                            <li><button class="btn" ng-click="sendData(4)">Humidity</button></li>
+                        </ul>
+                        <input type="submit" style="display: none" id="submit2" ng-click="createGraph()">
+                    </div>
+                </div>
+                <!-- col ends -->
+            </div>
+            <!-- row ends -->
+        </div>
+        <!-- mainCtrl ends -->
+    </div>
+    <!-- container ends -->
+    <script type="text/javascript" src="/scripts/vendor.bundle.js"></script>
+    <script type="text/javascript" src="/scripts/data.bundle.js"></script>
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-79295813-1', 'auto');
+        ga('send', 'pageview');
+    </script>
 </body>
+
 </html>
