@@ -5,7 +5,7 @@ var port = process.env.PORT || 3000;
 
 //Create the server instance and the router.
 var express = require("express"),
-	app = express(),
+    app = express(),
     parser = require("body-parser"),
     router = require("./api");
 
@@ -18,5 +18,5 @@ app.use("/api", router);
 
 //Start the server.
 app.listen(port, function() {
-	console.log("Server running at http://my-site:" + port);
+    console.log("Server running at http://localhost:" + port);
 });
