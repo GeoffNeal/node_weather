@@ -5,6 +5,8 @@ WELCOME PAGE
 @import 'https://fonts.googleapis.com/css?family=Lato:300';
 @import 'https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css';
 $speed: 2s;
+
+
 #welcome {
     background-color: rgba(150, 150, 150, .6);
     color: #f0f0f0;

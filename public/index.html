@@ -9,12 +9,6 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-
-
-
 </head>
 
 <body ng-app="weatherApp">
@@ -29,10 +23,8 @@
                 <div class="col-md-3 text-center" id="info-block">
                     <div id="searchContainer">
                         <input type="text" placeholder="Enter a city name" ng-model="userInput" id="searchBar">
+                        <input type="submit" value="search" id="submit1" ng-click="sendData(); appear()">
                     </div>
-                    <input type="submit" value="search" id="submit1" ng-click="sendData(); appear()">
-                    </center>
-
 
                     <h1>{{data.city.name}} {{data.city.country}}</h1>
                     <h3>{{data.list[0].dt_txt}}</h3>
@@ -45,10 +37,10 @@
                         <li>Wind Speed: {{data.list[0].wind.speed}} meter/sec</li>
                     </ul>
 
-                    <!-- <img id="weatherIcon" src="{{cityIcon}}"> -->
+                    <img id="weatherIcon" src="{{cityIcon}}">
+
                 </div>
                 <!-- col ends -->
-
                 <welcome></welcome>
                 <div class="col-md-9 text-center" id="graph-container">
 
@@ -67,6 +59,7 @@
             <!-- row ends -->
         </div>
         <!-- mainCtrl ends -->
+
     </div>
     <!-- container ends -->
     <script type="text/javascript" src="/scripts/vendor.bundle.js"></script>
